@@ -1,0 +1,16 @@
+graph TD
+    A[Mobile App] --> B[CloudFront]
+    B --> C[API Gateway]
+    C --> D[ELB]
+    D --> E[ECS Fargate]
+    E --> F[RDS Aurora]
+    E --> G[ElastiCache]
+    E --> H[DynamoDB]
+    I[S3] --> B
+    J[Cognito] --> C
+    K[CloudWatch] --> E
+    L[WAF] --> B
+    M[Lambda] --> E
+    N[Kinesis] --> M
+    O[SQS] --> E
+    P[SNS] --> K

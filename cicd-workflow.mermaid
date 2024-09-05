@@ -1,0 +1,16 @@
+graph TD
+    A[Developer Commits Code] -->|Push to Version Control| B[Code Repository]
+    B --> C{Automated Tests}
+    C -->|Tests Pass| D[Build Application]
+    C -->|Tests Fail| E[Notify Developer]
+    E --> A
+    D --> F[Create Docker Image]
+    F --> G[Push to Container Registry]
+    G --> H{Deploy to Staging}
+    H -->|Staging Tests Pass| I[Manual Approval]
+    H -->|Staging Tests Fail| E
+    I -->|Approved| J[Deploy to Production]
+    J --> K[Post-Deployment Tests]
+    K -->|Tests Pass| L[Monitoring & Alerts]
+    K -->|Tests Fail| M[Rollback if Necessary]
+    M --> E
